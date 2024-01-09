@@ -5,17 +5,24 @@ class RegistrationForm extends Component {
     name: '',
     email: '',
     password: '',
-    gender: '',
-    music_hobby: '',
-    sport_hobby: '',
+    gender_male: '',
+    gender_female: '',
+    music_hobby: false,
+    sport_hobby: false,
     birthdate: '',
+    age: 0,
   }
 
   handleInputChange = (event) => {
-    const { name, value } = event.target
+    const { name, value, type, checked } = event.target
+    // Handle different input types
     this.setState({
-      [name]: value,
+      [name]: type === 'checkbox' ? checked : type === 'radio' ? value : value,
     })
+
+    // this.setState({
+    //   [name]: value,
+    // })
   }
 
   handleRegisterClick = () => {
@@ -67,16 +74,16 @@ class RegistrationForm extends Component {
             <input
               type='radio'
               id='male'
-              name='gender'
-              value={this.state.gender === 'male'}
+              name='gender_male'
+              value={this.state.gender_male === 'male'}
               onChange={this.handleInputChange}
             />
             <label htmlFor='male'>Male</label>
             <input
               type='radio'
               id='female'
-              name='gender'
-              value={this.state.gender === 'female'}
+              name='gender_female'
+              value={this.state.gender_feamle === 'female'}
               onChange={this.handleInputChange}
             />
             <label htmlFor='female'>Female</label>
@@ -102,7 +109,15 @@ class RegistrationForm extends Component {
           {/* Age */}
           <div className='Userage'>
             <label htmlFor='Age'>Age</label>
-            <input type='range' name='age' value='age' min='0' max='100' />
+            <input
+              type='range'
+              name='age'
+              value={this.state.age}
+              min='0'
+              max='100'
+              onChange={this.handleInputChange}
+            />
+            <div className='ageText'>Age {this.state.age}</div>
           </div>
           {/* BirthDate */}
           <div className='UserBirthdate'>
