@@ -1,0 +1,49 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+body
+{
+  margin: 0;
+  padding: 0;
+}
+.main_form_container
+{ width:100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form_container
+{
+  width:450px;
+  height:600px;
+  box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.1);
+  padding:18px 13px;
+}
+.registration_main_text
+{
+margin: 0;
+}
+.fullname,.userEmail,.userPassword,.Userage,.UserBirthdate
+{
+  display: flex;
+  flex-direction: column;
+  margin:20px 0;
+}
+.userInput,.userInputEmail,.userInputPassword,.userInputBirthdate
+{
+  height:30px;
+  border:1px solid silver;
+  border-radius: 3px;
+  padding:2px 3px;
+}
+.userInput:focus
+{
+  border-color: #2196F3;
+}
+.genderText,.userIntrest
+{
+  margin-bottom:0;
+}
