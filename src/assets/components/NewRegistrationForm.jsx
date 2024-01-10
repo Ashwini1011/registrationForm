@@ -1,14 +1,14 @@
 import { Component } from 'react'
 
-class RegistrationForm extends Component {
+class NewRegistrationForm extends Component {
   state = {
     name: '',
     email: '',
     password: '',
     gender: 'male',
+    //   gender_female: '',
     music_hobby: false,
     sport_hobby: false,
-    hobby: [],
     birthdate: '',
     age: 0,
   }
@@ -19,23 +19,15 @@ class RegistrationForm extends Component {
     this.setState({
       [name]: type === 'checkbox' ? checked : type === 'radio' ? value : value,
     })
+
+    // this.setState({
+    //   [name]: value,
+    // })
   }
-
-  // handleInputChange = (event) => {
-  //   const { name, value, type, checked } = event.target
-  //   // Handle different input types
-
-  //   if (type === 'checkbox' && checked) {
-  //     this.state.hobby.push(value)
-  //   } else {
-  //     this.setState({
-  //       [name]: type === 'radio' ? value : value,
-  //     })
-  //   }
-  // }
 
   handleRegisterClick = () => {
     console.log('Registration Data:', this.state)
+    // You can add your logic for sending the data to the server or any other actions here
   }
 
   render() {
@@ -83,7 +75,8 @@ class RegistrationForm extends Component {
               type='radio'
               id='male'
               name='gender'
-              value={this.state.gender === 'male'}
+              value='male'
+              checked={this.state.gender === 'male'}
               onChange={this.handleInputChange}
             />
             <label htmlFor='male'>Male</label>
@@ -91,7 +84,8 @@ class RegistrationForm extends Component {
               type='radio'
               id='female'
               name='gender'
-              value={this.state.gender === 'female'}
+              value='female'
+              checked={this.state.gender === 'female'}
               onChange={this.handleInputChange}
             />
             <label htmlFor='female'>Female</label>
@@ -101,15 +95,15 @@ class RegistrationForm extends Component {
             <p className='userIntrest'>Intrest</p>
             <input
               type='checkbox'
-              name='hobby'
-              checked={this.state.hobby === 'music'}
+              name='music_hobby'
+              checked={this.state.music_hobby}
               onChange={this.handleInputChange}
             />
             <label htmlFor='music'>Music</label>
             <input
               type='checkbox'
-              name='hobby'
-              checked={this.state.hobby === 'sports'}
+              name='sport_hobby'
+              checked={this.state.sport_hobby}
               onChange={this.handleInputChange}
             />
             <label htmlFor='sports'>Sports</label>
@@ -145,4 +139,4 @@ class RegistrationForm extends Component {
   }
 }
 
-export default RegistrationForm
+export default NewRegistrationForm
